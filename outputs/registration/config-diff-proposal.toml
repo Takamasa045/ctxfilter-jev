@@ -1,0 +1,14 @@
+# NOT APPLIED. Add only this table after Codex review and sandbox permission.
+# Framing: newline-delimited JSON-RPC on stdio.
+# This server forwards allowlisted excerpts plus the caller goal/criteria to the existing Jev MCP (external).
+# Allowlisting a file does not authorize confidential goals or extra rules.
+# Do not treat readOnlyHint as local-only.
+
+# BEGIN CTXFILTER-JEV MCP
+[mcp_servers.ctxfilter_jev]
+command = "/opt/homebrew/opt/python@3.14/bin/python3.14"
+args = [
+  "/Users/takamasa/Documents/Codex/2026-09-20/ctxfilter-jev-integration/outputs/bin/ctxfilter-jev",
+  "mcp",
+]
+# END CTXFILTER-JEV MCP

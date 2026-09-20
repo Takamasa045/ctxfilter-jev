@@ -1,0 +1,1 @@
+`results.json` is a superseded earlier comparison that mixed hidden full-file oracles, proof reuse, and incomplete envelopes. Do not use it. Current files: `results-live.json`, `results-mock.json`, `streams-live/`, `streams-mock/`.

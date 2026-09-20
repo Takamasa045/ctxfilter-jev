@@ -1,0 +1,30 @@
+# Default deny: only reviewed source, documentation and synthetic evidence.
+*
+!*/
+!.gitignore
+!README.md
+!outputs/*.md
+!outputs/bin/ctxfilter-jev
+!outputs/src/**/*.py
+!outputs/tests/**/*.py
+!outputs/registration/*.py
+!outputs/registration/*.md
+!outputs/registration/config-diff-proposal.toml
+!outputs/comparison/*.py
+!outputs/comparison/*.md
+!outputs/comparison/results-live.json
+!outputs/comparison/results-mock.json
+!outputs/comparison/streams-live/**/*.ndjson
+!outputs/comparison/streams-mock/**/*.ndjson
+!outputs/verification/*.py
+!outputs/verification/results.md
+!outputs/verification/proof.json
+!outputs/verification/proof-live-02.json
+!work/fixtures/build_fixtures.py
+
+# Never include local authorization, credentials, backups or runtime logs.
+**/__pycache__/
+**/*.pyc
+**/.env*
+work/backup/
+outputs/allowlist.json
