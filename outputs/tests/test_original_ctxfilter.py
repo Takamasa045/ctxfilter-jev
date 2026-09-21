@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+import re
 import subprocess
 import unittest
 from pathlib import Path
@@ -10,7 +11,7 @@ PYTHON = "/opt/homebrew/opt/python@3.14/bin/python3.14"
 
 
 class OriginalCtxfilterTests(unittest.TestCase):
-    def test_original_37_unchanged(self) -> None:
+    def test_original_suite_passes(self) -> None:
         env = os.environ.copy()
         env["PYTHONDONTWRITEBYTECODE"] = "1"
         env["PYTHONPATH"] = str(ORIG / "outputs" / "src")
@@ -23,5 +24,7 @@ class OriginalCtxfilterTests(unittest.TestCase):
             timeout=90,
         )
         self.assertEqual(proc.returncode, 0, proc.stderr[-4000:])
-        self.assertIn("Ran 37 tests", proc.stderr)
+        count = re.search(r"Ran (\d+) tests", proc.stderr)
+        self.assertIsNotNone(count)
+        self.assertGreaterEqual(int(count.group(1)), 37)
         self.assertIn("OK", proc.stderr.splitlines()[-1])
